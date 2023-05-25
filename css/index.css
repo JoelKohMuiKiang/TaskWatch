@@ -1,0 +1,268 @@
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#calendar {
+    transition: margin-left .5s;
+}
+
+/* The Modal (background) */
+.modal.addTask {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Location of the box */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content.addTask {
+    background-color: #f1f1f1;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.taskModal {
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.modal-content.taskModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    transform: translate(-50%, -50%);
+    background-color: #f1f1f1;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px grey;
+    border-radius: 10px;
+}
+
+.modal.aboutModal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Location of the box */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.modal-content.aboutModal {
+    background-color: #f1f1f1;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#closeBtn {
+    position: absolute;
+    right: 30px;
+    top: 7px;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+#task {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.label.date {
+    margin-top: 5px;
+}
+
+.dates-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 200px;
+}
+
+.date-separator {
+    font-size: 20px;
+    margin-top: -3px;
+}
+
+.dates-times-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 110%;
+}
+
+.labelled-items {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.item-label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    width: 100%;
+    /* increase the width to 100% */
+    display: flex;
+    /* use flex layout */
+    justify-content: space-between;
+    /* align the h5 and span to left and right of the header */
+}
+
+input[type=text],
+input[type=date],
+input[type=time],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group {
+    position: 10%;
+}
+
+button.fc-sidebar-button.btn.btn-primary {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+button.fc-prev-button.btn.btn-primary {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+button.fc-next-button.btn.btn-primary {
+    margin-top: 10px;
+}
+
+.fc-today-button {
+    margin-top: 10px;
+}
+
+button.fc-addFootage-button.btn.btn-primary {
+    margin-top: 10px;
+}
+
+button.fc-addTask-button.btn.btn-primary {
+    margin-top: 10px;
+}
+
+button.fc-dayGridMonth-button.btn.btn-primary {
+    margin-top: 10px;
+}
+
+button.fc-timeGridWeek-button.btn.btn-primary {
+    margin-top: 10px;
+}
+
+button.fc-timeGridDay-button.btn.btn-primary {
+    margin-top: 10px;
+}
+
+button.fc-about-button.btn.btn-primary {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.fc-toolbar-chunk {
+    margin-top: 10px;
+}

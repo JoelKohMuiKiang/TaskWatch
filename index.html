@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskWatch</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+    <link rel="icon" href="images\TaskWatchIcon.png">
+    <script src="https://kit.fontawesome.com/1b3c2b0e0a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- <div id="taskwatchSideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+    <button class="btn btn-primary" onclick="openNav()">&#9776; open</button> -->
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="profile.html" class="profileBtn" id="profileNavButton">Profile</a>
+        <a type="button" class="logoutBtn" id="logoutNavButton" onclick="logOut()">Log Out</a>
+    </div>
+
+    <div id="calendar"></div>
+
+    <!-- <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog addTask">
+            <div class="modal-content addTask">
+                <div class="modal-header addTask">
+                    <div class="modal-title" id="addTaskModalLabel">Add Task</div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div id="addTaskModal" class="modal addTask">
+        <div class="modal-dialog addTask">
+            <div class="modal-content addTask">
+                <div class="modal-header">
+                    <div class="col-6" style="display: flex; justify-content: flex-start;">
+                        <h5 class="modal-title addTask">Add Task</h5>
+                    </div>
+                    <div class="col-6" style="display: flex; justify-content: flex-end;">
+                        <span class="close" id="close">&times;</span>
+                    </div>
+                </div>
+                <div class="modal-body addTask">
+                    <form id="event-form">
+                        <div class="form-group">
+                            <label for="task-name">Name of Task:</label>
+                            <input type="text" id="task-name" placeholder="Task's name..." required>
+                        </div>
+                        <div class="form-group"
+                            style="display: flex; justify-content: space-between; margin-top: 10px;">
+                            <div style="position: relative;">
+                                <input type="date" id="task-start-date" style="width: 75%;" required>
+                                <input type="time" id="task-start-time" style="width: 75%;" required>
+                                <div style="position: absolute; top: 50%; transform: translateY(-50%);">
+                                    <span style="font-size: 2.5em; margin-left: 165px">&#10132;</span>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="date" id="task-end-date" style="width: 75%;" required>
+                                <input type="time" id="task-end-time" style="width: 75%;" required>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <label for="task-location">Location:</label>
+                            <input type="text" id="task-location" required>
+                        </div>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <i class="fa-solid fa-bell"></i>
+                            <label for="task-alert">Reminder:</label>
+                            <select name="alert" id="task-alert">
+                                <option value="10 Mins before">10 Mins before</option>
+                                <option value="30 Mins before">30 Mins before</option>
+                                <option value="1 hr before">1 hr before</option>
+                                <option value="2 hrs before">2 hrs before</option>
+                                <option value="12 hrs before">12 hrs before</option>
+                                <option value="1 day before">1 day before</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <i class="fa-solid fa-comment"></i>
+                            <label for="task-description">Description:</label>
+                            <input type="text" id="task-description" style="padding: 60px 20px;" required>
+                        </div>
+                        <button type="button" id="submit-event" onclick="addTask()">Add Event</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="taskModal" class="modal taskModal">
+        <!-- Modal content -->
+        <div class="modal-content taskModal">
+            <div class="modal-header">
+                <div class="task-container">
+                    <p id="task"></p>
+                    <div class="dates-times-container">
+                        <p id="start_task_date_time"></p>
+                        <p class="time-separator">-</p>
+                        <p id="end_task_date_time"></p>
+                    </div>
+                </div>
+                <span class="closeBtn" id="closeBtn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="labelled-items">
+                    <p class="item-label">Description:</p>
+                    <p id="description"></p>
+                </div>
+                <div class="labelled-items">
+                    <p class="item-label">Location:</p>
+                    <p id="location"></p>
+                </div>
+                <div class="labelled-items">
+                    <p class="item-label">Alert:</p>
+                    <p id="alert"></p>
+                </div>
+                <button type="button" id="deleteTaskBtn" onclick="deleteTask()">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</body>
+
+</html>

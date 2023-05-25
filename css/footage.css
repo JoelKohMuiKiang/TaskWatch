@@ -1,0 +1,20 @@
+.back-button {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    color: #000;
+}
+
+.form-group {
+    margin-top: 10px;
+}
+
+button#submit-footage {
+    margin-top: 10px;
+  }
